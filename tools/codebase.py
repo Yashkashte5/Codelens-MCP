@@ -1,8 +1,3 @@
-"""
-Codebase tools: ask_repo, search_code, get_file, repo_info, list_files
-All powered by GitHub API — no indexing required.
-"""
-
 from typing import Optional
 from github import (
     search_code as gh_search,

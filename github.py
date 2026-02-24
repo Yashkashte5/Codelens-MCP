@@ -1,8 +1,3 @@
-"""
-GitHub API client.
-Handles code search, file fetching, and repo metadata.
-"""
-
 import os
 import base64
 import requests

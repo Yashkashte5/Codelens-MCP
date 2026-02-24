@@ -17,7 +17,7 @@ Ask things like:
 - *"What's a good alternative to axios?"*
 - *"Give me a full audit of pallets/flask"*
 
-No indexing. No local models. Every answer is pulled live from GitHub and Libraries.io.
+Every answer is pulled live from GitHub and Libraries.io.
 
 ---
 

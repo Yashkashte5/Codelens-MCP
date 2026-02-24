@@ -1,8 +1,3 @@
-"""
-Package tools: search_packages, get_package_info, check_dependencies, find_alternatives
-Uses the Libraries.io API + GitHub API for package file fetching.
-"""
-
 import os
 import json
 import requests

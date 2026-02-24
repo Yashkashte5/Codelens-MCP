@@ -1,8 +1,3 @@
-"""
-CodeLens MCP Server
-Gives Claude complete intelligence about any GitHub codebase.
-"""
-
 import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))

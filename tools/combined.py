@@ -1,8 +1,3 @@
-"""
-Combined tools: repo_summary, audit_repo, compare
-High level calls that combine codebase + package tools.
-"""
-
 import re
 from typing import Optional
 from tools.codebase import ask_repo, repo_info
