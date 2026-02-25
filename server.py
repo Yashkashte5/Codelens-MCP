@@ -7,7 +7,6 @@ from tools.codebase import ask_repo, search_code, get_file, repo_info, list_file
 from tools.packages import search_packages, get_package_info, check_dependencies, find_alternatives
 from tools.combined import audit_repo, repo_summary, compare
 
-
 mcp = FastMCP("CodeLens")
 
 # ─── Codebase Tools ────────────────────────────────────────────────────────────
@@ -73,7 +72,7 @@ def tool_list_files(repo: str, extension: str = "") -> str:
     return list_files(repo, extension if extension else None)
 
 
-# ─── Package Tools ──────────────────────────────────────────────────────────────
+# ─── Package Tools ─────────────────────────────────────────────────────────────
 
 @mcp.tool()
 def tool_search_packages(query: str, language: str = "") -> str:
@@ -123,7 +122,7 @@ def tool_find_alternatives(package_name: str, language: str = "") -> str:
     return find_alternatives(package_name, language if language else None)
 
 
-# ─── Combined Tools ─────────────────────────────────────────────────────────────
+# ─── Combined Tools ────────────────────────────────────────────────────────────
 
 @mcp.tool()
 def tool_audit_repo(repo: str) -> str:
@@ -149,12 +148,6 @@ def tool_repo_summary(repo: str) -> str:
     return repo_summary(repo)
 
 
-# ─── Entry Point ────────────────────────────────────────────────────────────────
-
-if __name__ == "__main__":
-    mcp.run()
-
-
 @mcp.tool()
 def tool_compare(item1: str, item2: str, platform: str = "") -> str:
     """
@@ -167,3 +160,8 @@ def tool_compare(item1: str, item2: str, platform: str = "") -> str:
         platform: optional platform hint e.g. 'npm', 'pypi', 'cargo'
     """
     return compare(item1, item2, platform if platform else None)
+
+
+
+if __name__ == "__main__":
+    mcp.run()

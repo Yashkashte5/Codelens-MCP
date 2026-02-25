@@ -19,12 +19,13 @@ PACKAGE_FILES = {
 }
 
 
-def _api_get(endpoint: str, params: dict = {}) -> dict | list | None:
+def _api_get(endpoint: str, params: Optional[dict] = None) -> dict | list | None:
     if not LIBRARIES_IO_KEY:
         return {"error": "LIBRARIES_IO_API_KEY not set"}
     try:
-        params["api_key"] = LIBRARIES_IO_KEY
-        resp = requests.get(f"{LIBRARIES_IO_BASE}/{endpoint}", params=params, timeout=10)
+        p = params or {}
+        p["api_key"] = LIBRARIES_IO_KEY
+        resp = requests.get(f"{LIBRARIES_IO_BASE}/{endpoint}", params=p, timeout=10)
         if resp.status_code == 200:
             return resp.json()
         return {"error": f"API returned {resp.status_code}: {resp.text[:200]}"}

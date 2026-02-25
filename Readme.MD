@@ -93,6 +93,7 @@ Codelens-MCP/
 │   ├── codebase.py  — repo exploration tools
 │   ├── packages.py  — Libraries.io package tools
 │   └── combined.py  — audit, summary, and compare tools
+├── demo/            — demo GIFs for all tools
 ├── requirements.txt
 └── .env
 ```
@@ -101,51 +102,80 @@ Codelens-MCP/
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| `tool_ask_repo` | Answer natural language questions about any repo |
-| `tool_search_code` | Search for specific code patterns in a repo |
-| `tool_get_file` | Fetch the full contents of a specific file |
-| `tool_repo_info` | Get repo metadata — stars, language, license, topics |
-| `tool_list_files` | List all files in a repo, optionally filter by extension |
-| `tool_search_packages` | Search Libraries.io for packages |
-| `tool_get_package_info` | Get detailed info about a specific package |
-| `tool_check_dependencies` | Audit all dependencies in a repo for health and maintenance |
-| `tool_find_alternatives` | Find alternatives to a package ranked by stars |
-| `tool_repo_summary` | High-level summary of any repo |
-| `tool_audit_repo` | Full audit — overview + dependency health in one shot |
-| `tool_compare` | Compare two repos or packages side by side |
+### tool_ask_repo
+Answer natural language questions about any GitHub repo. Searches and fetches relevant code on the fly with exact file citations.
+
+![tool_ask_repo](demo/tool_ask_repo-ezgif.com-video-to-gif-converter.gif)
 
 ---
 
-## Example Prompts
+### tool_search_code
+Search for specific code patterns inside a repo. Optionally filter by language.
 
-**Exploring a repo**
-```
-How does routing work in tiangolo/fastapi?
-List all python files in pallets/flask
-Get the file fastapi/routing.py from tiangolo/fastapi
-```
+![tool_search_code](demo/tool_search_code-ezgif.com-video-to-gif-converter.gif)
 
-**Package research**
-```
-Is lodash still worth using?
-Find alternatives to moment.js on npm
-Get info about the httpx package on pypi
-```
+---
 
-**Dependency health**
-```
-Check the dependencies of tiangolo/fastapi
-Run a full audit on pallets/flask
-```
+### tool_get_file
+Fetch the full contents of any file from any public GitHub repo.
 
-**Comparing options**
-```
-Compare express and fastify
-Compare requests vs httpx on pypi
-Compare django and flask for a new project
-```
+![tool_get_file](demo/tool_get_file-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_list_files
+List all files in a GitHub repository, with optional extension filtering.
+
+![tool_list_files](demo/tool_list_files-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_search_packages
+Search Libraries.io for packages across any platform — npm, pypi, cargo, and more.
+
+![tool_search_packages](demo/tool_search_packages-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_get_package_info
+Get detailed info about a specific package — version, stars, contributors, maintenance status.
+
+![tool_get_package_info](demo/tool_get_package_info-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_check_dependencies
+Fetch package files directly from a GitHub repo and audit every dependency for health and maintenance status.
+
+![tool_check_dependencies](demo/tool_check_dependencies-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_find_alternatives
+Find alternative packages to replace a given dependency, ranked by stars and maintenance.
+
+![tool_find_alternatives](demo/tool_find_alternatives-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_repo_summary
+High-level summary of any GitHub repo — purpose, structure, technologies, and dependency health in one shot.
+
+![tool_repo_summary](demo/tool_repo_summary-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_audit_repo
+Full repo audit combining code overview and dependency health report in a single call.
+
+![tool_audit_repo](demo/tool_audit_repo-ezgif.com-video-to-gif-converter.gif)
+
+---
+
+### tool_compare
+Compare two GitHub repos or packages side by side. Auto-detects whether inputs are repos or packages and hits the right API accordingly.
+
+![tool_compare](demo/tool_compare-ezgif.com-video-to-gif-converter.gif)
 
 ---
 
@@ -166,3 +196,9 @@ Compare django and flask for a new project
 - GitHub API: 5,000 requests/hour with a token
 - Libraries.io free tier: 60 requests/minute
 - Works on public GitHub repos only
+
+---
+
+## License
+
+MIT

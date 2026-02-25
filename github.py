@@ -3,19 +3,27 @@ import base64
 import requests
 from typing import Optional
 
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_BASE = "https://api.github.com"
 
-HEADERS = {
-    "Authorization": f"Bearer {GITHUB_TOKEN}",
-    "Accept": "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-}
+
+def _headers() -> dict:
+    """Build headers per request so token is always read fresh."""
+    token = os.getenv("GITHUB_TOKEN", "")
+    return {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
 
 
-def _get(endpoint: str, params: dict = {}) -> dict | list | None:
+def _get(endpoint: str, params: Optional[dict] = None) -> dict | list | None:
     try:
-        resp = requests.get(f"{GITHUB_BASE}/{endpoint}", headers=HEADERS, params=params, timeout=10)
+        resp = requests.get(
+            f"{GITHUB_BASE}/{endpoint}",
+            headers=_headers(),
+            params=params or {},
+            timeout=10
+        )
         if resp.status_code == 200:
             return resp.json()
         return {"error": f"GitHub API {resp.status_code}: {resp.text[:200]}"}

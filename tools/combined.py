@@ -160,9 +160,8 @@ def compare(item1: str, item2: str, platform: Optional[str] = None) -> str:
         snap2 = _repo_snapshot(item2)
         mode = "repo"
     elif not _is_repo(item1) and not _is_repo(item2):
-        guessed = _guess_platform(item1)
-        snap1 = _package_snapshot(item1, guessed)
-        snap2 = _package_snapshot(item2, guessed)
+        snap1 = _package_snapshot(item1, _guess_platform(item1))
+        snap2 = _package_snapshot(item2, _guess_platform(item2))
         mode = "package"
     else:
         snap1 = _repo_snapshot(item1) if _is_repo(item1) else _package_snapshot(item1, _guess_platform(item1))
