@@ -65,14 +65,9 @@ def _is_repo(name: str) -> bool:
 
 
 def _guess_platform(name: str) -> str:
-    js = {"express", "fastify", "react", "vue", "angular", "lodash", "axios",
-          "moment", "dayjs", "webpack", "vite", "next", "nuxt", "koa", "hapi"}
-    py = {"flask", "django", "fastapi", "requests", "httpx", "sqlalchemy",
-          "numpy", "pandas", "pytorch", "tensorflow", "celery", "pydantic"}
-    if name.lower() in js:
-        return "npm"
-    if name.lower() in py:
-        return "pypi"
+    data = _api_get("search", {"q": name, "per_page": 1})
+    if data and not isinstance(data, dict) and len(data) > 0:
+        return data[0].get("platform", "npm").lower()
     return "npm"
 
 
